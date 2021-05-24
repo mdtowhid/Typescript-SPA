@@ -74,8 +74,19 @@ window.addEventListener('DOMContentLoaded', function (e) { return __awaiter(void
                                 oldValue: true,
                             });
                             var attrHref = htmlAnchorElement.getAttribute("component");
-                            if (attrHref === "table")
-                                domSelectedObject.renderBody.innerHTML = Table.makeTable(movies);
+                            if (attrHref === "home") {
+                                domSelectedObject.renderBody.innerHTML = Spinner.getSpinner(Common.LinearSpinner.toString());
+                                setTimeout(function () {
+                                    domSelectedObject.renderBody.innerHTML = Home.homeComponet;
+                                }, 1000);
+                            }
+                            if (attrHref === "table") {
+                                domSelectedObject.renderBody.innerHTML = Spinner.getSpinner(Common.LinearSpinner.toString());
+                                setTimeout(function () {
+                                    domSelectedObject.renderBody.innerHTML =
+                                        Table.makeTable(movies);
+                                }, 1000);
+                            }
                             if (attrHref === "navbar")
                                 domSelectedObject.renderBody.innerHTML = Navbar.navbar;
                             if (attrHref === "blogs") {

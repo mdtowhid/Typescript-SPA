@@ -2,7 +2,6 @@ import { IAxios } from "../interfaces/IAxios";
 import IMovie from "../interfaces/IMovie";
 
 export default class Axios<T extends { id?: string | number | IMovie }> implements IAxios<T> {
-
   GetById(id: string | number, url: string): Promise<T> {
     return new Promise(async (resolve, reject) => {
       const data = (await this.GetAll(url)) as unknown as T[];

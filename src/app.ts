@@ -36,10 +36,29 @@ window.addEventListener('DOMContentLoaded', async e => {
                 });
 
                 const attrHref = htmlAnchorElement.getAttribute("component");
-                if (attrHref === "table")
-                  domSelectedObject.renderBody!.innerHTML = Table.makeTable(movies);
+                
+                if (attrHref === "home") {
+                  domSelectedObject.renderBody!.innerHTML = Spinner.getSpinner(
+                    Common.LinearSpinner.toString()
+                  );
+                  setTimeout(() => {
+                    domSelectedObject.renderBody!.innerHTML = Home.homeComponet;
+                  }, 1000);
+                }
+
+                if (attrHref === "table") {
+                  domSelectedObject.renderBody!.innerHTML = Spinner.getSpinner(
+                    Common.LinearSpinner.toString()
+                  );
+                  setTimeout(() => {
+                    domSelectedObject.renderBody!.innerHTML =
+                      Table.makeTable(movies);
+                  }, 1000);
+                }
+
                 if (attrHref === "navbar")
                     domSelectedObject.renderBody!.innerHTML = Navbar.navbar;
+
                 if (attrHref === "blogs") {
                   domSelectedObject.renderBody!.innerHTML = Spinner.getSpinner(
                     Common.LinearSpinner.toString()

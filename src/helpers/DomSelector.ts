@@ -1,9 +1,9 @@
 import { IDomSelectedObjects } from "../interfaces/IDomSelectedObjects";
 
 export default class DomSelector {
-  static x = document.querySelectorAll(".top-menu-items-ul li a")!;
+  x = document.querySelectorAll(".top-menu-items-ul li a")!;
 
-  static initDoms(): IDomSelectedObjects {
+  initDoms(): IDomSelectedObjects {
     let domSelectedObject: IDomSelectedObjects = {
       topMenuAnchors: document.querySelectorAll(".top-menu-items-ul li a")!,
       navbar: document.getElementById("nav")!,

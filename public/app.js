@@ -34,71 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import Card from "./components/card/Card.js";
-import Home from "./components/home/Home.js";
-import Navbar from "./components/nav/Navbar.js";
-import Spinner from "./components/spinner/Spinner.js";
-import Table from "./components/table/Table.js";
-import { Common } from "./enums/Common.enum.js";
-import DomSelector from "./helpers/DomSelector.js";
-import Observable from "./helpers/Observable.js";
-import EmployeeService from "./services/EmployeeService.js";
-import MovieService from "./services/MovieService.js";
-window.addEventListener('DOMContentLoaded', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-    var topMenuAnhcors, movieService, movies, employeeService, employees, employee, domSelectedObject;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                topMenuAnhcors = null;
-                movieService = new MovieService();
-                return [4 /*yield*/, movieService.getMovies()];
-            case 1:
-                movies = _a.sent();
-                employeeService = new EmployeeService();
-                return [4 /*yield*/, employeeService.getEmployees()];
-            case 2:
-                employees = _a.sent();
-                return [4 /*yield*/, employeeService.getEmployeeById(1)];
-            case 3:
-                employee = _a.sent();
-                domSelectedObject = DomSelector.initDoms();
-                domSelectedObject.navbar.innerHTML = Navbar.navbar;
-                domSelectedObject.renderBody.innerHTML = Home.homeComponet;
-                setTimeout(function () {
-                    var anchors = DomSelector.initDoms().topMenuAnchors;
-                    anchors.forEach(function (element) {
-                        var htmlAnchorElement = element;
-                        htmlAnchorElement.addEventListener('click', function (e) {
-                            Observable.observable(domSelectedObject.renderBody, {
-                                childList: true,
-                                oldValue: true,
-                            });
-                            var attrHref = htmlAnchorElement.getAttribute("component");
-                            if (attrHref === "home") {
-                                domSelectedObject.renderBody.innerHTML = Spinner.getSpinner(Common.LinearSpinner.toString());
-                                setTimeout(function () {
-                                    domSelectedObject.renderBody.innerHTML = Home.homeComponet;
-                                }, 1000);
-                            }
-                            if (attrHref === "table") {
-                                domSelectedObject.renderBody.innerHTML = Spinner.getSpinner(Common.LinearSpinner.toString());
-                                setTimeout(function () {
-                                    domSelectedObject.renderBody.innerHTML =
-                                        Table.makeTable(movies);
-                                }, 1000);
-                            }
-                            if (attrHref === "navbar")
-                                domSelectedObject.renderBody.innerHTML = Navbar.navbar;
-                            if (attrHref === "blogs") {
-                                domSelectedObject.renderBody.innerHTML = Spinner.getSpinner(Common.LinearSpinner.toString());
-                                setTimeout(function () {
-                                    domSelectedObject.renderBody.innerHTML = Card.cardForMovie(movies[0], movies);
-                                }, 2000);
-                            }
-                        });
-                    });
-                }, 2000);
-                return [2 /*return*/];
-        }
+import Modules from "./helpers/Exporters.js";
+window.addEventListener("DOMContentLoaded", function (e) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, Navbar, Home, Router, DomSelector, domSelectedObject;
+    return __generator(this, function (_b) {
+        _a = new Modules(), Navbar = _a.Navbar, Home = _a.Home, Router = _a.Router, DomSelector = _a.DomSelector;
+        domSelectedObject = DomSelector.initDoms();
+        domSelectedObject.navbar.innerHTML = Navbar.navbar;
+        domSelectedObject.renderBody.innerHTML = Home.homeComponet;
+        Router.onInitRoutes();
+        return [2 /*return*/];
     });
 }); });

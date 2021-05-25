@@ -34,32 +34,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import CardDetails from "../components/card/CardDetails.js";
-import Spinner from "../components/spinner/Spinner.js";
-import MovieService from "../services/MovieService.js";
-import DomSelector from "./DomSelector.js";
+import Modules from "../helpers/Exporters.js";
 var Observable = /** @class */ (function () {
     function Observable() {
     }
     Observable.observable = function (target, options) {
         var _this = this;
-        var movieService = new MovieService();
+        var _a = new Modules(), DomSelector = _a.DomSelector, Spinner = _a.Spinner, CardDetails = _a.CardDetails, MovieService = _a.MovieService;
         var observer = new MutationObserver(function (mutations) {
             for (var _i = 0, mutations_1 = mutations; _i < mutations_1.length; _i++) {
                 var mutation = mutations_1[_i];
                 if (mutation.type === "childList") {
                     if (mutation.addedNodes instanceof NodeList) {
                         mutation.addedNodes.forEach(function (element) {
-                            var a = document.querySelectorAll('a');
+                            var a = document.querySelectorAll("a");
                             a.forEach(function (element) {
                                 var aas = element;
                                 if (aas.hasAttribute("details-component")) {
-                                    aas.addEventListener('click', function (e) { return __awaiter(_this, void 0, void 0, function () {
+                                    aas.addEventListener("click", function (e) { return __awaiter(_this, void 0, void 0, function () {
                                         var attrDetailsComponent, attrSplitted, renderBody;
                                         var _this = this;
                                         return __generator(this, function (_a) {
                                             attrDetailsComponent = aas.getAttribute("details-component");
-                                            attrSplitted = attrDetailsComponent === null || attrDetailsComponent === void 0 ? void 0 : attrDetailsComponent.split('/');
+                                            attrSplitted = attrDetailsComponent === null || attrDetailsComponent === void 0 ? void 0 : attrDetailsComponent.split("/");
                                             renderBody = DomSelector.initDoms().renderBody;
                                             renderBody.innerHTML = Spinner.spinner;
                                             setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
@@ -69,7 +66,7 @@ var Observable = /** @class */ (function () {
                                                         case 0:
                                                             if (!(attrSplitted === null || attrSplitted === void 0 ? void 0 : attrSplitted.length)) return [3 /*break*/, 2];
                                                             if (!(attrSplitted[0] === "card-details")) return [3 /*break*/, 2];
-                                                            return [4 /*yield*/, movieService.getMovie(+attrSplitted[1])];
+                                                            return [4 /*yield*/, MovieService.getMovie(+attrSplitted[1])];
                                                         case 1:
                                                             movie = _a.sent();
                                                             renderBody.innerHTML =

@@ -1,9 +1,14 @@
 import IMovie from "../../interfaces/IMovie";
 
-export default class Table<T extends { movies: IMovie | IMovie[] }> {
-  
+export default class Table<T extends { models: any }>{
 
-  static makeTable(models: IMovie[]) {
+  makeGenericTable (data: T[]){
+    data.forEach(d => {
+      d.models.id = 10;
+    })
+  }
+
+  makeTable(models: IMovie[]) {
     return `<table>
         <thead>
           <tr>

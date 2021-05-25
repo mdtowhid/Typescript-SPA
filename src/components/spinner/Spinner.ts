@@ -1,13 +1,27 @@
 import { Common } from "../../enums/Common.enum.js";
+import Modules from '../../helpers/Exporters.js';
 
 export default class Spinner {
-  static spinner = `<div class="valign-wrapper">
+  spinner = `<div class="valign-wrapper">
     <div class="progress">
       <div class="indeterminate"></div>
     </div>
   </div>`;
 
-  static getSpinner(type: string): string {
+  setSpinner(type: string, target?: Element) {
+    const { DomSelector } = new Modules();
+    const spinner = this.makeSpinner(type);
+
+    if(target !== undefined){
+      target.innerHTML = spinner;
+    }else{
+      let renderBody = DomSelector.initDoms().renderBody;
+      renderBody!.innerHTML = spinner;
+    }
+    
+  }
+
+  makeSpinner(type: string): string {
     let sp = ``;
     switch (type) {
       case Common.LinearSpinner.toString():
@@ -30,7 +44,6 @@ export default class Spinner {
             </div>
         </div>`;
       default:
-        
         break;
     }
 

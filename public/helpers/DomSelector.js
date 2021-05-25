@@ -1,7 +1,8 @@
 var DomSelector = /** @class */ (function () {
     function DomSelector() {
+        this.x = document.querySelectorAll(".top-menu-items-ul li a");
     }
-    DomSelector.initDoms = function () {
+    DomSelector.prototype.initDoms = function () {
         var domSelectedObject = {
             topMenuAnchors: document.querySelectorAll(".top-menu-items-ul li a"),
             navbar: document.getElementById("nav"),
@@ -9,7 +10,6 @@ var DomSelector = /** @class */ (function () {
         };
         return domSelectedObject;
     };
-    DomSelector.x = document.querySelectorAll(".top-menu-items-ul li a");
     return DomSelector;
 }());
 export default DomSelector;

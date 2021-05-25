@@ -1,6 +1,7 @@
 import Card from "../components/card/Card.js";
 import CardDetails from "../components/card/CardDetails.js";
 import Chip from "../components/chip/Chip.js";
+import EmployeeList from "../components/employee-list/EmployeeList.js";
 import Home from "../components/home/Home.js";
 import Navbar from "../components/nav/Navbar.js";
 import Spinner from "../components/spinner/Spinner.js";
@@ -24,4 +25,5 @@ export default interface IExporters {
   Table?: Table<any>;
   Router?: Router;
   DomSelector?: DomSelector;
+  EmployeeList?: EmployeeList;
 }

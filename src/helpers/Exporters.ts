@@ -11,6 +11,7 @@ import Observable from "../helpers/Observable.js";
 import Table from "../components/table/Table.js";
 import Router from "../routes/Router.js";
 import DomSelector from "./DomSelector.js";
+import EmployeeList from "../components/employee-list/EmployeeList.js";
 
 export default class Exporters implements IExporters {
   Card = Card;
@@ -25,4 +26,5 @@ export default class Exporters implements IExporters {
   Observable = Observable;
   Router = new Router();
   DomSelector = new DomSelector();
+  EmployeeList = new EmployeeList();
 }

@@ -10,6 +10,7 @@ import Observable from "../helpers/Observable.js";
 import Table from "../components/table/Table.js";
 import Router from "../routes/Router.js";
 import DomSelector from "./DomSelector.js";
+import EmployeeList from "../components/employee-list/EmployeeList.js";
 var Exporters = /** @class */ (function () {
     function Exporters() {
         this.Card = Card;
@@ -24,6 +25,7 @@ var Exporters = /** @class */ (function () {
         this.Observable = Observable;
         this.Router = new Router();
         this.DomSelector = new DomSelector();
+        this.EmployeeList = new EmployeeList();
     }
     return Exporters;
 }());

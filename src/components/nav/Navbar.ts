@@ -8,9 +8,8 @@ export default class Navbar {
                     <ul id="nav-mobile" class="left hide-on-med-and-down top-menu-items-ul">
                         <li ref=""><a href="javascript:void(0)" component="home">Home</a></li>
                         <li><a href="javascript:void(0)" component="blogs">Blogs</a></li>
-                        <li><a href="javascript:void(0)" component="sass">Sass</a></li>
+                        <li><a href="javascript:void(0)" component="employees">Employees</a></li>
                         <li><a href="javascript:void(0)" component="table">Table</a></li>
-                        <li><a href="javascript:void(0)" component="navbar">Navbar</a></li>
                     </ul>
                 </div>
             </nav>

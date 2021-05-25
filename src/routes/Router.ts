@@ -4,8 +4,17 @@ import { IDomSelectedObjects } from "../interfaces/IDomSelectedObjects.js";
 
 export default class Router {
   async onInitRoutes(routes?: any[]) {
-    const { Observable, Spinner, Home, Card, Table, Navbar, MovieService, DomSelector } =
-      new Modules();
+    const {
+      Observable,
+      Spinner,
+      Home,
+      Card,
+      Table,
+      MovieService,
+      DomSelector,
+      EmployeeList,
+      EmployeeService,
+    } = new Modules();
     let domSelectedObject: IDomSelectedObjects = DomSelector.initDoms();
     const movies = await MovieService.getMovies();
     if(routes !== undefined){
@@ -21,32 +30,34 @@ export default class Router {
                 oldValue: true,
               });
               const attrHref = htmlAnchorElement.getAttribute("component");
+              let renderBody = domSelectedObject.renderBody!;
+
+              if (attrHref === "employees") {
+                Spinner.setSpinner(Common.LinearSpinner.toString());
+                setTimeout(async () => {
+                  renderBody.innerHTML =
+                    EmployeeList.onInitEmployees(await EmployeeService.getEmployees());
+                }, 2000);
+              }
 
               if (attrHref === "home") {
                 Spinner.setSpinner(Common.LinearSpinner.toString());
                 setTimeout(() => {
-                  domSelectedObject.renderBody!.innerHTML = Home.homeComponet;
+                  renderBody.innerHTML = Home.homeComponet;
                 }, 1000);
               }
 
               if (attrHref === "table") {
                 Spinner.setSpinner(Common.LinearSpinner.toString());
                 setTimeout(() => {
-                  domSelectedObject.renderBody!.innerHTML =
-                    Table.makeTable(movies);
+                  renderBody.innerHTML = Table.makeTable(movies);
                 }, 1000);
               }
-
-              if (attrHref === "navbar")
-                domSelectedObject.renderBody!.innerHTML = Navbar.navbar;
 
               if (attrHref === "blogs") {
                 Spinner.setSpinner(Common.LinearSpinner.toString());
                 setTimeout(() => {
-                  domSelectedObject.renderBody!.innerHTML = Card.cardForMovie(
-                    movies[0],
-                    movies
-                  );
+                  renderBody.innerHTML = Card.cardForMovie(movies[0], movies);
                 }, 2000);
               }
             });

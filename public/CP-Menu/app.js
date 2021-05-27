@@ -8,7 +8,7 @@ let parent = null; let tagname=null;
 buttons.forEach((btn, index) => {
     btn.addEventListener('click', e => {
         let nextEl = btn.nextElementSibling;
-        sessionStorage.setItem(ACTIVE_SESSION_NAME, index);
+        localStorage.setItem(ACTIVE_SESSION_NAME, index);
         nextEl.classList.toggle(ACTIVE);
         btn.classList.add(ACTIVE_BUTTON);
     });
@@ -26,7 +26,7 @@ function addActiveClass(x){
 }
 
 document.addEventListener('DOMContentLoaded', e => {
-    const index = sessionStorage.getItem(ACTIVE_SESSION_NAME);
+    const index = localStorage.getItem(ACTIVE_SESSION_NAME);
     if (index) {
         const button = buttons[+index];
         if (button) {
@@ -37,8 +37,6 @@ document.addEventListener('DOMContentLoaded', e => {
                 parent = getParent(parent);
                 tagname = getTagLower(parent);
                 if (tagname === UL) {
-                    let cc = getTogether(parent);
-                    console.log(cc);
                     addActiveClass(parent);
                     parent = getParent(parent);
                     tagname = getTagLower(parent);

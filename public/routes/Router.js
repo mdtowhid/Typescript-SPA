@@ -34,81 +34,91 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Common } from "../enums/Common.enum.js";
 import Modules from "../helpers/Exporters.js";
+import { Common } from "../enums/Common.enum.js";
 var Router = /** @class */ (function () {
     function Router() {
     }
     Router.prototype.onInitRoutes = function (routes) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, Observable, Spinner, Home, Card, Table, MovieService, DomSelector, EmployeeList, EmployeeService, domSelectedObject, movies;
+            var _a, Home, Card, Table, Spinner, Observable, DomSelector, MovieService, EmployeeList, EmployeeService, domSelectedObject;
             var _this = this;
             return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _a = new Modules(), Observable = _a.Observable, Spinner = _a.Spinner, Home = _a.Home, Card = _a.Card, Table = _a.Table, MovieService = _a.MovieService, DomSelector = _a.DomSelector, EmployeeList = _a.EmployeeList, EmployeeService = _a.EmployeeService;
-                        domSelectedObject = DomSelector.initDoms();
-                        return [4 /*yield*/, MovieService.getMovies()];
-                    case 1:
-                        movies = _b.sent();
-                        if (routes !== undefined) {
-                        }
-                        else {
-                            setTimeout(function () {
-                                var anchors = DomSelector.initDoms().topMenuAnchors;
-                                anchors.forEach(function (element) {
-                                    var htmlAnchorElement = element;
-                                    htmlAnchorElement.addEventListener("click", function (e) {
-                                        Observable.observable(domSelectedObject.renderBody, {
-                                            childList: true,
-                                            oldValue: true,
-                                        });
-                                        var attrHref = htmlAnchorElement.getAttribute("component");
-                                        var renderBody = domSelectedObject.renderBody;
-                                        if (attrHref === "employees") {
-                                            Spinner.setSpinner(Common.LinearSpinner.toString());
-                                            setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
-                                                var _a, _b, _c;
-                                                return __generator(this, function (_d) {
-                                                    switch (_d.label) {
-                                                        case 0:
-                                                            _a = renderBody;
-                                                            _c = (_b = EmployeeList).onInitEmployees;
-                                                            return [4 /*yield*/, EmployeeService.getEmployees()];
-                                                        case 1:
-                                                            _a.innerHTML =
-                                                                _c.apply(_b, [_d.sent()]);
-                                                            return [2 /*return*/];
-                                                    }
-                                                });
-                                            }); }, 2000);
-                                        }
-                                        if (attrHref === "home") {
-                                            Spinner.setSpinner(Common.LinearSpinner.toString());
-                                            setTimeout(function () {
-                                                renderBody.innerHTML = Home.homeComponet;
-                                            }, 1000);
-                                        }
-                                        if (attrHref === "table") {
-                                            Spinner.setSpinner(Common.LinearSpinner.toString());
-                                            setTimeout(function () {
-                                                renderBody.innerHTML = Table.makeTable(movies);
-                                            }, 1000);
-                                        }
-                                        if (attrHref === "blogs") {
-                                            Spinner.setSpinner(Common.LinearSpinner.toString());
-                                            setTimeout(function () {
-                                                renderBody.innerHTML = Card.cardForMovie(movies[0], movies);
-                                            }, 2000);
-                                        }
-                                    });
-                                });
-                            }, 2000);
-                        }
-                        return [2 /*return*/];
+                _a = new Modules(), Home = _a.Home, Card = _a.Card, Table = _a.Table, Spinner = _a.Spinner, Observable = _a.Observable, DomSelector = _a.DomSelector, MovieService = _a.MovieService, EmployeeList = _a.EmployeeList, EmployeeService = _a.EmployeeService;
+                domSelectedObject = DomSelector.initDoms();
+                if (routes !== undefined) {
                 }
+                else {
+                    setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
+                        var anchors;
+                        var _this = this;
+                        return __generator(this, function (_a) {
+                            anchors = DomSelector.initDoms().topMenuAnchors;
+                            anchors.forEach(function (element) { return __awaiter(_this, void 0, void 0, function () {
+                                var htmlAnchorElement;
+                                var _this = this;
+                                return __generator(this, function (_a) {
+                                    htmlAnchorElement = element;
+                                    htmlAnchorElement.addEventListener("click", function (e) { return __awaiter(_this, void 0, void 0, function () {
+                                        var attrHref, renderBody, _a, _b, _c, _d, movies, movies;
+                                        return __generator(this, function (_e) {
+                                            switch (_e.label) {
+                                                case 0:
+                                                    Observable.observable(domSelectedObject.renderBody, {
+                                                        childList: true,
+                                                        oldValue: true,
+                                                    });
+                                                    attrHref = htmlAnchorElement.getAttribute("component");
+                                                    renderBody = domSelectedObject.renderBody;
+                                                    if (!(attrHref === "employees")) return [3 /*break*/, 2];
+                                                    Spinner.setSpinner(Common.LinearSpinner.toString());
+                                                    _a = this.componentSetter;
+                                                    _b = [renderBody];
+                                                    _d = (_c = EmployeeList).onInitEmployees;
+                                                    return [4 /*yield*/, EmployeeService.getEmployees()];
+                                                case 1:
+                                                    _a.apply(this, _b.concat([_d.apply(_c, [_e.sent()]),
+                                                        1000]));
+                                                    _e.label = 2;
+                                                case 2:
+                                                    if (attrHref === "home") {
+                                                        Spinner.setSpinner(Common.CircularSpinner.toString());
+                                                        this.componentSetter(renderBody, Home.homeComponet);
+                                                    }
+                                                    if (!(attrHref === "table")) return [3 /*break*/, 4];
+                                                    Spinner.setSpinner(Common.LinearSpinner.toString());
+                                                    return [4 /*yield*/, MovieService.getMovies()];
+                                                case 3:
+                                                    movies = _e.sent();
+                                                    this.componentSetter(renderBody, Table.makeTable(movies));
+                                                    _e.label = 4;
+                                                case 4:
+                                                    if (!(attrHref === "blogs")) return [3 /*break*/, 6];
+                                                    return [4 /*yield*/, MovieService.getMovies()];
+                                                case 5:
+                                                    movies = _e.sent();
+                                                    Spinner.setSpinner(Common.LinearSpinner.toString());
+                                                    this.componentSetter(renderBody, Card.cardForMovie(movies[0], movies));
+                                                    _e.label = 6;
+                                                case 6: return [2 /*return*/];
+                                            }
+                                        });
+                                    }); });
+                                    return [2 /*return*/];
+                                });
+                            }); });
+                            return [2 /*return*/];
+                        });
+                    }); }, 2000);
+                }
+                return [2 /*return*/];
             });
         });
+    };
+    Router.prototype.componentSetter = function (renderBody, component, time) {
+        setTimeout(function () {
+            renderBody.innerHTML = component;
+        }, time ? time : 2000);
     };
     return Router;
 }());

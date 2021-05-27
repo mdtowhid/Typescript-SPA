@@ -71,7 +71,6 @@ var Observable = /** @class */ (function () {
                                                             movie = _a.sent();
                                                             renderBody.innerHTML =
                                                                 CardDetails.getCardDetails(movie);
-                                                            setTimeout(function () { }, 2000);
                                                             _a.label = 2;
                                                         case 2: return [2 /*return*/];
                                                     }

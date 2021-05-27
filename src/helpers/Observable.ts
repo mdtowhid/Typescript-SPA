@@ -1,7 +1,7 @@
 import Modules from "../helpers/Exporters.js";
 export default class Observable {
   static observable(target: Element, options: object) {
-  const { DomSelector, Spinner, CardDetails, MovieService } = new Modules();
+    const { DomSelector, Spinner, CardDetails, MovieService } = new Modules();
 
     const observer: MutationObserver = new MutationObserver(
       (mutations: MutationRecord[]) => {
@@ -27,7 +27,6 @@ export default class Observable {
                             );
                             renderBody!.innerHTML =
                               CardDetails.getCardDetails(movie);
-                            setTimeout(() => {}, 2000);
                           }
                         }
                       }, 2000);

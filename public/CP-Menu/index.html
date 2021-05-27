@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #root-ul li ul{
+                display: none;
+            }
+            #root-ul li ul.active{
+                display: block;
+            }
+            .btn-active{
+                margin: 10px 0 10px;
+                width: 120px;
+                border: none;
+                box-shadow: 0 0 3px #ccc;
+                border-radius: 5px;
+                background: black;
+                color: white;
+                padding: 10px;
+                text-transform: uppercase;
+                font-weight: bolder;
+                letter-spacing: 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul id="root-ul">
+            <li>
+                <button>Home 1</button>
+                <ul>
+                    <li>Home 1</li>
+                    <li>Home 1</li>
+                    <li>Home 1</li>
+                    <li>Home 1</li>
+                </ul>
+            </li>
+            <li>
+                <button>Home 2</button>
+                <ul>
+                    <li>Home 2</li>
+                    <li>
+                        <button>Javascript 1</button>
+                        <ul>
+                            <li>Javascript 1</li>
+                            <li>Javascript 1</li>
+                            <li>Javascript 1</li>
+                            <li>Javascript 1</li>
+                            <li>Javascript 1</li>
+                        </ul>
+                    </li>
+                    <li>Home 2</li>
+                    <li>Home 2</li>
+                </ul>
+            </li>
+            <li>
+                <button>Home 3</button>
+                <ul>
+                    <li>Home 3</li>
+                    <li>Home 3</li>
+                    <li>Home 3
+                        <li>
+                            <button>Javascript 3</button>
+                            <ul>
+                                <li>Javascript 1</li>
+                                <li>Javascript 1</li>
+                                <li>Javascript 1
+                                    <li>
+                                        <button>Javascript 4</button>
+                                        <ul>
+                                            <li>Javascript 1</li>
+                                            <li>Javascript 1</li>
+                                            <li>Javascript 1</li>
+                                            <li>
+                                                <button>Last Button</button>
+                                                <ul>
+                                                    <li>Last Menu</li>
+                                                    <li>Last Menu</li>
+                                                    <li>Last Menu</li>
+                                                    <li>Last Menu</li>
+                                                    <li>Last Menu</li>
+                                                </ul>
+                                            </li>
+                                            <li>Javascript 1</li>
+                                        </ul>
+                                    </li>
+                                </li>
+                                <li>Javascript 1</li>
+                                <li>Javascript 1</li>
+                            </ul>
+                        </li>
+                    </li>
+                    <li>Home 3</li>
+                </ul>
+            </li>
+        </ul>
+        <script src="./app.js"></script>
+    </body>
+
+</html>

@@ -1,32 +1,53 @@
 const LI = 'li';
 const UL = 'ul';
-const ACTIVE = 'active';
-const ACTIVE_SESSION_NAME = '---';
+const ACTIVE_CLASS = 'active';
+const STORAGE_NAME = '---';
 const ACTIVE_BUTTON = 'btn-active';
 const buttons = document.querySelectorAll('button');
-let parent = null; let tagname=null;
+const STORAGE_OBJECT_CONFIGS = {
+    index: 0,
+    rootId: '',
+    storageMode: 0,
+    visitedLinks: [],
+    storageName: 'activated-menu',
+};
+let parent = null;
+let tagname = null;
+
+STORAGE_OBJECT_CONFIGS.storageMode = 1;
+STORAGE_OBJECT_CONFIGS.rootId = 'slideMenu';
+
+
 buttons.forEach((btn, index) => {
     btn.addEventListener('click', e => {
+        const _ = STORAGE_OBJECT_CONFIGS;
+        _.index = index;
+        _.visitedLinks.push({ index });
+        localStorage.setItem(_.storageName, JSON.stringify(_));
+        const __ = JSON.parse(localStorage.getItem(_.storageName));
+        console.log(__);
+
+
+        localStorage.setItem(STORAGE_NAME, index);
         let nextEl = btn.nextElementSibling;
-        localStorage.setItem(ACTIVE_SESSION_NAME, index);
-        nextEl.classList.toggle(ACTIVE);
+        nextEl.classList.toggle(ACTIVE_CLASS);
         btn.classList.add(ACTIVE_BUTTON);
     });
 });
 
-function getTagLower(x){
+function getTagLower(x) {
     return x.tagName.toLocaleLowerCase();
 }
-function getParent(parent){
+function getParent(parent) {
     return parent.parentElement
 }
 
-function addActiveClass(x){
-    x.classList.add(ACTIVE)
+function addActiveClass(x) {
+    x.classList.add(ACTIVE_CLASS)
 }
 
 document.addEventListener('DOMContentLoaded', e => {
-    const index = localStorage.getItem(ACTIVE_SESSION_NAME);
+    const index = localStorage.getItem(STORAGE_NAME);
     if (index) {
         const button = buttons[+index];
         if (button) {

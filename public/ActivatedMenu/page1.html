@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #sideNav ul {
+                display: none;
+            }
+
+            #sideNav ul.active {
+                display: block;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <ul id="sideNav">
+            <li style="cursor: pointer;">
+                <h1>HR</h1>
+            </li>
+            <li>
+                <a href="#">
+                    <b>Master Data</b>
+                </a>
+                <ul>
+                    <li><a onclick="OpenMenu()">Employee</a></li>
+                    <li><a href="./page1.html">Page 1</a></li>
+                    <li><a href="./page2.html">Page 2</a></li>
+                    <li><a href="./page1.html">Page 1</a></li>
+                    <li><a href="./page2.html">Page 2</a></li>
+                    <li>
+                        <a href="#">
+                            Another Master Data 00
+                        </a>
+                        <ul>
+                            <li><a onclick="OpenMenu()">Employee22112</a></li>
+                            <li><a onclick="OpenMenu()">Employee 12</a></li>
+                            <li><a href="./page2.html">Page 2</a></li>
+                            <li><a href="./page3.html">Page 1</a></li>
+                            <li>
+                                <a href="#">Another Master Data 221</a>
+                                <ul>
+                                    <li><a onclick="OpenMenu()">Employee22112</a></li>
+                                    <li><a onclick="OpenMenu()">Employee 12</a></li>
+                                    <li><a href="./page1.html">Page 1</a></li>
+                                    <li><a href="./page2.html">Page 2</a></li>
+                                    <li><a onclick="OpenMenu()">Employee 22</a></li>
+                                    <li><a href="./page2.html">Page 2</a></li>
+                                    <li><a href="./page3.html">Page 1</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <b>Master Data 1233</b>
+                </a>
+                <ul>
+                    <li><a onclick="OpenMenu()">Employee</a></li>
+                    <li><a href="./page1.html">Page 1</a></li>
+                    <li><a href="./page2.html">Page 2</a></li>
+                    <li><a href="./page1.html">Page 1</a></li>
+                    <li><a href="./page2.html">Page 2</a></li>
+                    <li>
+                        <a href="#">
+                            Another Master Data
+                        </a>
+                        <ul>
+                            <li><a onclick="OpenMenu()">Employee22112</a></li>
+                            <li><a onclick="OpenMenu()">Employee 12</a></li>
+                            <li><a href="./page2.html">Page 2</a></li>
+                            <li><a href="./page3.html">Page 1</a></li>
+                            <li>
+                                <a href="#">Another Master Data 23333</a>
+                                <ul>
+                                    <li><a onclick="OpenMenu()">Employee22112</a></li>
+                                    <li><a onclick="OpenMenu()">Employee 12</a></li>
+                                    <li><a href="./page1.html">Page 1</a></li>
+                                    <li><a href="./page2.html">Page 2</a></li>
+                                    <li><a onclick="OpenMenu()">Employee 22</a></li>
+                                    <li><a href="./page2.html">Page 2</a></li>
+                                    <li><a href="./page3.html">Page 1</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <script src="./app.js"></script>
+    </body>
+
+</html>
